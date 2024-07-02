@@ -65,3 +65,24 @@ gnb.fit(x_train_sc, y_train)
 y_pred = gnb.predict(x_test_sc)
 
 cm = confusion_matrix(y_test, y_pred)
+
+
+#decision tree
+from sklearn.tree import DecisionTreeClassifier
+dtc = DecisionTreeClassifier(criterion= "entropy")
+
+dtc.fit(x_train_sc, y_train)
+
+y_pred = dtc.predict(x_test_sc)
+
+cm = confusion_matrix(y_test, y_pred)
+
+
+#random forest
+from sklearn.ensemble import RandomForestClassifier
+rfc = RandomForestClassifier(n_estimators=10, criterion="entropy")
+rfc.fit(x_train_sc, y_train)
+
+y_pred = rfc.predict(x_test_sc)
+
+cm = confusion_matrix(y_test, y_pred)
